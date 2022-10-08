@@ -40,7 +40,7 @@ function addToDo(event) {
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                 </div>`
         // adding to server
-        axios.post('https://lazy-blue-pelican-belt.cyclic.app/todo', {
+        axios.post('https://wild-rose-dove-tux.cyclic.app/todo', {
             text: toDoInput.value
         })
             .catch((err) => console.log("err", err))
@@ -51,7 +51,7 @@ function addToDo(event) {
 
 function getTodos() {
     // adding to server
-    axios.get(`https://lazy-blue-pelican-belt.cyclic.app/todos`)
+    axios.get(`https://wild-rose-dove-tux.cyclic.app/todos`)
         .then((response) => {
             response.data.data.map((value) => {
                 allTodoIds = value
@@ -68,7 +68,7 @@ function getTodos() {
 }
 
 const dltTodo = async (id) => {
-    await axios.delete(`https://lazy-blue-pelican-belt.cyclic.app/todo/${id}`, {
+    await axios.delete(`https://wild-rose-dove-tux.cyclic.app/todo/${id}`, {
         _id: id
     })
         .then((res) => {
@@ -80,7 +80,7 @@ const dltTodo = async (id) => {
 function dltAllTodos(event) {
     deletecheck(event)
     event.preventDefault();
-    axios.delete(`https://lazy-blue-pelican-belt.cyclic.app/todos`)
+    axios.delete(`https://wild-rose-dove-tux.cyclic.app/todos`)
         .then(() => {
             console.log("All deleted from mongodb");
             history.go(0)
