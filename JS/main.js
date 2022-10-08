@@ -44,7 +44,9 @@ function addToDo(event) {
         // adding to server
         axios.post('https://wild-rose-dove-tux.cyclic.app/todo', {
             text: toDoInput.value
-        })
+        }).then(() =>
+            history.go(0)
+        )
             .catch((err) => console.log("err", err))
         // CLearing the input;
         toDoInput.value = '';
