@@ -36,8 +36,10 @@ function addToDo(event) {
             `<div class="todo ${savedTheme}-todo">
                     <div  class="todo-item">
                    <li>${toDoInput.value}</li></div>
+                   <div>
                      <button class="check-btn"><i class="fas fa-check"></i></button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
                 </div>`
         // adding to server
         axios.post('https://wild-rose-dove-tux.cyclic.app/todo', {
@@ -59,8 +61,10 @@ function getTodos() {
                     `<div class="todo ${savedTheme}-todo">
                 <div  class="todo-item">
                <li>${value.text}</li></div>
-                <button class="check-btn"><i class="fas fa-check"></i></button>
-                <button class="delete-btn" onclick='dltTodo("${value._id}")'><i class="fas fa-trash"></i></button>
+               <div>
+               <button class="check-btn"><i class="fas fa-check"></i></button>
+               <button class="delete-btn" onclick='dltTodo("${value._id}")'><i class="fas fa-trash"></i></button>
+               </div
                </div>`
             })
         })
