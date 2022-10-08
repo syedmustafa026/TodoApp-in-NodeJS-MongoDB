@@ -35,8 +35,8 @@ function addToDo(event) {
         toDoList.innerHTML +=
             `<div class="todo ${savedTheme}-todo">
                     <div  class="todo-item">
-                   <li>${toDoInput.value}</li></div>
-                   <div>
+                    <li>${toDoInput.value}</li></div>
+                    <div class="todoDiv">
                      <button class="check-btn"><i class="fas fa-check"></i></button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                     </div>
@@ -71,7 +71,7 @@ function getTodos() {
         .catch((err) => console.log("err", err))
 }
 
-const dltTodo = async (id) => {
+async function dltTodo(id) {
     await axios.delete(`https://wild-rose-dove-tux.cyclic.app/todo/${id}`, {
         _id: id
     })
@@ -96,14 +96,14 @@ function deletecheck(event) {
     const item = event.target
     // delete
     if (item.classList[0] === 'delete-btn') {
-        item.parentElement.classList.add("fall");
+        item.parentElement.parentElement.classList.add("fall");
         item.parentElement.addEventListener('transitionend', function () {
             item.parentElement.remove();
         })
     }
     // check
     if (item.classList[0] === 'check-btn') {
-        item.parentElement.classList.toggle("completed");
+        item.parentElement.parentElement.classList.toggle("completed");
     }
 }
 // POST /todo
